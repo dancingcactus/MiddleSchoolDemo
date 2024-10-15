@@ -3,9 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Middle School Demo</title>
+    <title>Harry Potter Fan Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2d2b55;
+            color: #ffcc00;
+            font-family: 'Libre Baskerville', serif;
+            text-align: center;
+        }
+        header {
+            background-color: #3c3b63;
+            padding: 20px;
+            font-size: 2em;
+        }
+        .content {
+            padding: 20px;
+        }
+        .houses {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 20px;
+        }
+        .house {
+            background-color: #444;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 20%;
+            transition: transform 0.2s;
+        }
+        .house:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #3c3b63;
+            font-size: 0.8em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Middle School Demo</h1>
+    <header>Welcome to Hogwarts</header>
+    <div class="content">
+        <p>Explore the magic of Hogwarts School of Witchcraft and Wizardry.</p>
+    </div>
+    <div class="houses">
+        <div class="house">
+            <h2>Gryffindor</h2>
+            <p>"Where dwell the brave at heart."</p>
+        </div>
+        <div class="house">
+            <h2>Slytherin</h2>
+            <p>"Those cunning folk use any means to achieve their ends."</p>
+        </div>
+        <div class="house">
+            <h2>Ravenclaw</h2>
+            <p>"Wit beyond measure is man's greatest treasure."</p>
+        </div>
+        <div class="house">
+            <h2>Hufflepuff</h2>
+            <p>"Where they are just and loyal."</p>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Harry Potter Fan Page. All Rights Reserved.
+    </footer>
 </body>
 </html>
