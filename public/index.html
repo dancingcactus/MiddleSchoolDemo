@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harry Potter Fan Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@adobe/alloy@2.4.0/dist/alloy.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            alloy("configure", {
+                "edgeConfigId": "YOUR_EDGE_CONFIGURATION_ID",
+                "orgId": "YOUR_ORG_ID"
+            });
+
+            document.querySelectorAll(".house").forEach(function(houseElement) {
+                houseElement.addEventListener("click", function() {
+                    const houseName = houseElement.querySelector("h2").textContent;
+                    alloy("sendEvent", {
+                        xdm: {
+                            eventType: "houseSelection",
+                            houseName: houseName
+                        }
+                    });
+                });
+            });
+        });
+    </script>
     <style>
         body {
             background-color: #2d2b55;
@@ -17,11 +38,17 @@
             padding: 20px;
             font-size: 2em;
         }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
         .content {
             padding: 20px;
         }
         .houses {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
             padding-top: 20px;
         }
@@ -30,8 +57,10 @@
             color: #fff;
             padding: 20px;
             border-radius: 8px;
-            width: 20%;
+            width: 150px;
+            margin: 10px;
             transition: transform 0.2s;
+            cursor: pointer;
         }
         .house:hover {
             transform: scale(1.1);
@@ -45,30 +74,29 @@
     </style>
 </head>
 <body>
-    <header>Welcome to Hogwarts</header>
-    <div class="content">
-        <p>Explore the magic of Hogwarts School of Witchcraft and Wizardry.</p>
+    <div class="container">
+        <header>Welcome to Hogwarts</header>
+        <div class="content">
+            <p>Explore the magic of Hogwarts School of Witchcraft and Wizardry.</p>
+        </div>
+        <div class="houses">
+            <div class="house">
+                <h2>Gryffindor</h2>
+                <p>"Where dwell the brave at heart."</p>
+            </div>
+            <div class="house">
+                <h2>Slytherin</h2>
+                <p>"Those cunning folk use any means to achieve their ends."</p>
+            </div>
+            <div class="house">
+                <h2>Ravenclaw</h2>
+                <p>"Wit beyond measure is man's greatest treasure."</p>
+            </div>
+            <div class="house">
+                <h2>Hufflepuff</h2>
+                <p>"Where they are just and loyal."</p>
+            </div>
+        </div>
     </div>
-    <div class="houses">
-        <div class="house">
-            <h2>Gryffindor</h2>
-            <p>"Where dwell the brave at heart."</p>
-        </div>
-        <div class="house">
-            <h2>Slytherin</h2>
-            <p>"Those cunning folk use any means to achieve their ends."</p>
-        </div>
-        <div class="house">
-            <h2>Ravenclaw</h2>
-            <p>"Wit beyond measure is man's greatest treasure."</p>
-        </div>
-        <div class="house">
-            <h2>Hufflepuff</h2>
-            <p>"Where they are just and loyal."</p>
-        </div>
-    </div>
-    <footer>
-        &copy; 2024 Harry Potter Fan Page. All Rights Reserved.
-    </footer>
 </body>
 </html>
